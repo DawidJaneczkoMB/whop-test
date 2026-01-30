@@ -11,7 +11,9 @@ import type { WhopElementsOptions } from "@whop/embedded-components-vanilla-js/t
 import { useEffect, useState } from "react";
 import { useApiKey, useOrgId } from "../utils/settings";
 
-const elements = loadWhopElements();
+const elements = loadWhopElements({
+	environment: "sandbox",
+});
 
 const appearance: WhopElementsOptions["appearance"] = {
 	classes: {
