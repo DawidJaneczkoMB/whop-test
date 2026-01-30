@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useApiKey, useOrgId } from "../utils/settings";
+import { Button } from "../components/Button";
 
 export const Route = createFileRoute("/connected-account")({
 	component: ConnectedAccount,
@@ -73,9 +74,9 @@ function ConnectedAccount() {
 		return (
 			<div className="p-20">
 				API key and Org ID are required. Go back to the{" "}
-				<Link to="/" className="text-blue-500 underline">
+				<Button to="/" className="text-blue-500 underline bg-transparent p-0">
 					index
-				</Link>
+				</Button>
 			</div>
 		);
 	}
@@ -83,9 +84,9 @@ function ConnectedAccount() {
 	return (
 		<div className="min-h-screen">
 			<div className="p-4 flex items-center relative">
-				<Link
+				<Button
 					to="/"
-					className="bg-blue-500 text-white p-2 rounded-md text-center flex items-center gap-1"
+					className="flex items-center gap-1"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +104,7 @@ function ConnectedAccount() {
 						<path d="m15 18-6-6 6-6" />
 					</svg>
 					Index
-				</Link>
+				</Button>
 			</div>
 			<div className="max-w-[600px] mx-auto p-10">
 				<h1 className="text-2xl font-semibold mb-6">

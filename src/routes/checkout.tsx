@@ -1,6 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { WhopCheckoutEmbed } from "@whop/checkout/react";
 import { useEffect, useState } from "react";
+import { Button } from "../components/Button";
 import { usePlanId } from "../utils/settings";
 
 export const Route = createFileRoute("/checkout")({ component: Checkout });
@@ -23,10 +24,7 @@ function Checkout() {
 	return (
 		<div className="min-h-screen">
 			<div className="p-4 flex items-center relative">
-				<Link
-					to="/"
-					className="bg-blue-500 text-white p-2 rounded-md text-center flex items-center gap-1"
-				>
+				<Button to="/" className="flex items-center gap-1">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="16"
@@ -43,7 +41,7 @@ function Checkout() {
 						<path d="m15 18-6-6 6-6" />
 					</svg>
 					Index
-				</Link>
+				</Button>
 				<form
 					onSubmit={handleSubmit}
 					className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2"

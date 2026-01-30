@@ -1,5 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Button } from "../components/Button";
 import { useApiKey, useOrgId } from "../utils/settings";
 
 export const Route = createFileRoute("/")({ component: App });
@@ -58,55 +59,16 @@ function App() {
 					</button>
 				</form>
 			</div>
-			<div className="flex gap-5 items-center justify-center h-full max-w-[600px] mx-auto p-10">
-				{apiKey ? (
-					<Link
-						to="/checkout"
-						className="bg-blue-500 text-white p-2 rounded-md text-center"
-					>
-						Checkout
-					</Link>
-				) : (
-					<button
-						type="button"
-						disabled
-						className="bg-gray-400 text-white p-2 rounded-md cursor-not-allowed"
-					>
-						Checkout
-					</button>
-				)}
-				{apiKey ? (
-					<Link
-						to="/payout-portal"
-						className="bg-blue-500 text-white p-2 rounded-md text-center"
-					>
-						Payout Portal
-					</Link>
-				) : (
-					<button
-						type="button"
-						disabled
-						className="bg-gray-400 text-white p-2 rounded-md cursor-not-allowed"
-					>
-						Payout Portal
-					</button>
-				)}
-				{apiKey ? (
-					<Link
-						to="/connected-account"
-						className="bg-blue-500 text-white p-2 rounded-md text-center"
-					>
-						Connected Account
-					</Link>
-				) : (
-					<button
-						type="button"
-						disabled
-						className="bg-gray-400 text-white p-2 rounded-md cursor-not-allowed"
-					>
-						Connected Account
-					</button>
-				)}
+			<div className="flex gap-5 items-center justify-center h-full max-w-4xl mx-auto p-10">
+				<Button to="/checkout" disabled={!apiKey}>
+					Checkout
+				</Button>
+				<Button to="/payout-portal" disabled={!apiKey}>
+					Payout Portal
+				</Button>
+				<Button to="/connected-account" disabled={!apiKey}>
+					Connected Account
+				</Button>
 			</div>
 		</div>
 	);
