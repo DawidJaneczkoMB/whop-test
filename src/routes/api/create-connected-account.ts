@@ -33,17 +33,30 @@ export const Route = createFileRoute("/api/create-connected-account")({
 					baseURL: "https://sandbox-api.whop.com/api/v1",
 				});
 
-				const company = await client.companies.create({
-					email: body.email,
-					parent_company_id: orgId,
-					title: body.title,
-					metadata: body.metadata,
-				});
+				try {
+					const company = await client.companies.create({
+						email: body.email,
+						parent_company_id: orgId,
+						title: body.title,
+						metadata: body.metadata,
+					});
 
-				return new Response(JSON.stringify({ company }), {
-					status: 200,
-					headers: { "Content-Type": "application/json" },
-				});
+					return new Response(JSON.stringify({ company }), {
+						status: 200,
+						headers: { "Content-Type": "application/json" },
+					});
+				} catch (error) {
+					return new Response(
+						JSON.stringify({
+							error:
+								error instanceof Error ? error.message : "An error occurred",
+						}),
+						{
+							status: 500,
+							headers: { "Content-Type": "application/json" },
+						},
+					);
+				}
 			},
 		},
 	},
