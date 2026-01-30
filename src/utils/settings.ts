@@ -47,9 +47,10 @@ export function setPlanId(id: string): void {
 }
 
 export function useApiKey(): [string | null, (key: string) => void] {
-	const [apiKey, setApiKeyState] = useState<string | null>(() => getApiKey());
+	const [apiKey, setApiKeyState] = useState<string | null>(null);
 
 	useEffect(() => {
+		setApiKeyState(getApiKey());
 		const handleStorageChange = () => {
 			setApiKeyState(getApiKey());
 		};
@@ -66,9 +67,10 @@ export function useApiKey(): [string | null, (key: string) => void] {
 }
 
 export function useOrgId(): [string | null, (id: string) => void] {
-	const [orgId, setOrgIdState] = useState<string | null>(() => getOrgId());
+	const [orgId, setOrgIdState] = useState<string | null>(null);
 
 	useEffect(() => {
+		setOrgIdState(getOrgId());
 		const handleStorageChange = () => {
 			setOrgIdState(getOrgId());
 		};
@@ -93,9 +95,10 @@ export function setPayoutOrgId(id: string): void {
 }
 
 export function usePayoutOrgId(): [string | null, (id: string) => void] {
-	const [payoutOrgId, setPayoutOrgIdState] = useState<string | null>(() => getPayoutOrgId());
+	const [payoutOrgId, setPayoutOrgIdState] = useState<string | null>(null);
 
 	useEffect(() => {
+		setPayoutOrgIdState(getPayoutOrgId());
 		const handleStorageChange = () => {
 			setPayoutOrgIdState(getPayoutOrgId());
 		};
@@ -112,9 +115,10 @@ export function usePayoutOrgId(): [string | null, (id: string) => void] {
 }
 
 export function usePlanId(): [string | null, (id: string) => void] {
-	const [planId, setPlanIdState] = useState<string | null>(() => getPlanId());
+	const [planId, setPlanIdState] = useState<string | null>(null);
 
 	useEffect(() => {
+		setPlanIdState(getPlanId());
 		const handleStorageChange = () => {
 			setPlanIdState(getPlanId());
 		};
